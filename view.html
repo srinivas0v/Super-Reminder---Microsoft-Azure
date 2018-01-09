@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list of images</title>
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<br>
+<h4>the time taken is </h4> {{ time }}
+<h4>the downloaded image is:</h4></br>
+
+<table>
+<tr>
+  <tr>
+    <th>Name</th>
+<th>image</th>
+<tr>
+        {% for i in flist %}
+           <td> {{ i }} </td>
+<td> <a href="/details/{{ i }}">
+    <img src=" {{ url_for('static',filename = i) }}" height="200" width="200"> </td>
+            </tr>
+        {% endfor %}
+
+</table>
+</body>
+</html>

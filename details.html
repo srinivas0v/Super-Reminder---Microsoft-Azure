@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>details of image</title>
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<a> time taken is </a> {{ time }} <br/>
+<a> details of </a> {{ fname }} <br/>
+
+<img src=" {{ url_for('static',filename = fname ) }}" height="200" width="200">
+<table>
+<tr>
+  <tr>
+    <th>calories</th>
+    <th>ingredients</th>
+    <th>category</th>
+  </tr>
+<tr>
+        {% for i in detail %}
+<td> {{ i[1] }}</td>
+                      <td>{{ i[2] }}</td>
+            <td>{{ i[3] }}</td>
+            </tr>
+        {% endfor %}
+
+</table>
+</body>
+</html>
